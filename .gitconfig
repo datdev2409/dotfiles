@@ -1,0 +1,18 @@
+[user]
+	name = datdev2409
+	email = datdev2409@gmail.com
+	username = datdev2409
+[init]
+	defaultBranch = master
+[core]
+	editor = nvim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	pager = delta
+[github]
+	user = datdev2409
+	token = token
+[alias]
+	a = add
+    c = commit -m
+    p = push
+    cl = clone

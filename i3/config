@@ -1,0 +1,170 @@
+set $mod Mod4
+
+font pango:JetBrains Mono Nerd Font 9 
+
+# Autostart Picom
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# Auto start nightshift
+exec --no-startup-id redshift -P -O 3000
+
+# Auto restore wallpaper
+exec --no-startup-id nitrogen --restore
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Start XDG autostart .desktop files using dex. See also https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec  --no-startup-id light -U 10
+
+# Applications
+bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+b exec --no-startup-id google-chrome-stable
+bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+o exec --no-startup-id nautilus
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+q kill
+
+# Change focus
+focus_follows_mouse no
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split orientation toggle
+bindsym $mod+semicolon split toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window. If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border none
+default_floating_border none
+
+# Hide borders
+hide_edge_borders none
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
+
+# Switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+bindsym l resize shrink width 10 px or 10 ppt
+bindsym k resize grow height 10 px or 10 ppt
+bindsym j resize shrink height 10 px or 10 ppt
+bindsym h resize grow width 10 px or 10 ppt
+
+bindsym Right resize shrink width 10 px or 10 ppt
+bindsym Up resize grow height 10 px or 10 ppt
+bindsym Down resize shrink height 10 px or 10 ppt
+bindsym Left resize grow width 10 px or 10 ppt
+
+bindsym Return mode "default"
+bindsym Escape mode "default"
+bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Set inner/outer gaps
+gaps inner 10
+gaps outer -4
+
+# Color scheme
+# class                 border  bground text    indicator child_border
+client.focused          #7AA2F7 #7AA2F7 #1A1B26 #7AA2F7   #7AA2F7
+client.focused_inactive #24283B #24283B #A9B1D6 #24283B   #24283B
+client.unfocused        #1A1B26 #1A1B26 #A9B1D6 #1A1B26   #1A1B26
+client.urgent           #F7768E #F7768E #1A1B26 #F7768E   #F7768E
+client.placeholder      #000000 #000000 #FFFFFF #000000   #000000
+
+client.background       #FFFFFF
+
