@@ -1,0 +1,13 @@
+require('plugins')
+require('options')
+require('keybindings')
+require('treesitter-config')
+require('nvimtree-config')
+require('telescope-config')
+require('autopairs-config')
+--require('vsnip-config')
+require('lsp-config')
+require('escape-config')
+require('comment-config')
+require('onedark-config')
+
