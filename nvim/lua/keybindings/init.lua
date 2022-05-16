@@ -35,9 +35,3 @@ map('n', '<Down>', ':resize +1<cr>', opt)
 map('n', '<Up>', ':resize -1<cr>', opt)
 
 map('n', '<leader>u', ':lua folding()<cr>', opt)
-
--- Telescope
-map('n', '<leader>ff', "<cmd>Telescope find_files<cr>", opt )
-map('n', '<leader>fb', "<cmd>Telescope buffers<cr>", opt )
-map('n', '<leader>fg', "<cmd>Telescope live_grep<cr>", opt )
-map('n', '<leader>fr', "<cmd>Telescope oldfiles<cr>", opt )

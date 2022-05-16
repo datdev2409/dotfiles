@@ -1,37 +1,30 @@
-require('which-key').setup {
-}
-
-
 local wk = require("which-key")
+local opts = {mode = "n", prefix = "", noremap = true}
 
-mappings = {
-    q = {"<cmd>:bd<cr>", "Close"},
-    w = {"<cmd>w<cr>", "Save"},
-    x = {"<cmd>:q!<cr>", "Exit"},
-    f = {
+local n_mappings = {
+    ["<leader>f"] = {
         name = "File",
-        f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        g = {"<cmd> Telescope live_grep<cr>", "Live Grep"},
-        b = {"<cmd> Telescope buffers<cr>", "Search Buffers"},
+        f = { "<cmd>Telescope find_files<cr>", "Find File" },
+        r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+        b = { "<cmd>Telescope buffers<CR>", "Buffers" },
+        g = { "<cmd>Telescope live_grep<CR>", "Globals" }
     },
-    l = {
-        name = "LSP",   
-        d = { "<cmd> Telescope lsp_definitions<cr>", "Go To Definitions" },
-        i = { "<cmd> Telescope lsp_implementations<cr>", "Go To Implementations" },
-        r = { "<cmd> Telescope lsp_references<cr>", "Search references" },
-        o = { "<cmd> Telescope lsp_document_symbols<cr>", "Search Document Symbols" },
-        O = { "<cmd> Telescope lsp_dynamic_workspace_symbols<cr>", "Search Workspace Symbols" },
-        e = { "<cmd> Telescope lsp_document_diagnostics<cr>", "Search Document Errors"},
-        E = { "<cmd> Telescope lsp_workspace_diagnostics<cr>", "Search Document Errors"},
-        D = { "<cmd> lua vim.lsp.buf.declaration()<cr>", "Go to Declarations" },
-        f = { "<cmd> lua vim.lsp.buf.formatting()<cr>", "Format Code"},
-        R = { "<cmd> lua vim.lsp.buf.rename()<cr>", "Rename"},
+
+    g = {
+        name = "LSP",
+        r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
+        d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "GoTo Definition"},
+        D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "GoTo Declaration"},
+        o = {"<cmd> Telescope lsp_document_symbols<CR>", "List All Symbols"},
+        e = {"<cmd> Telescope lsp_document_diagnostics<CR>", "List All Errors"},
+        f = {":lua vim.lsp.buf.formatting()<CR>", "Formatting"},
+        k = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Hover"},
+    },
+
+    ["<leader>"] = {
+        name = "Leader",
+        c = {"<cmd>CommentToggle<CR>", "Comment Toggle"},
     }
 }
 
-opts = {
-    prefix = "<leader>"
-}
-
-wk.register(mappings, opts)
+wk.register(n_mappings, opts)

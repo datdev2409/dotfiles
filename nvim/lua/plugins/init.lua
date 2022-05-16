@@ -3,10 +3,8 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   
   -- Theme
-  use 'joshdick/onedark.vim'
   use 'sainnhe/everforest'
   use 'navarasu/onedark.nvim'
-
   -- LSP
   use 'neovim/nvim-lspconfig'
   use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"} -- hightlight code 
@@ -35,5 +33,8 @@ return require('packer').startup(function()
   
   -- Comment
   use "terrortylor/nvim-comment"
+
+  -- whichkey (keymapping)
+  use "folke/which-key.nvim"
 
 end)

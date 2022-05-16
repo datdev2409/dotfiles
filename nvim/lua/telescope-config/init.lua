@@ -84,15 +84,5 @@ require('telescope').setup {
     }
 }
 
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', {noremap = true})
 
-vim.api.nvim_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', { noremap = true})
-vim.api.nvim_set_keymap('n', 'gi', '<cmd> Telescope lsp_implementations<CR>', { noremap = true})
-vim.api.nvim_set_keymap('n', 'gr', '<cmd> Telescope lsp_references<CR>', { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>o', '<cmd> Telescope lsp_document_symbols<CR>', { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>e', '<cmd> Telescope lsp_document_diagnostics<CR>', { noremap = true})
 
-vim.api.nvim_set_keymap('n', '<C-k>', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-k>', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true })

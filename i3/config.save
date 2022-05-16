@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:JetBrains Mono Nerd Font 9
+font pango:JetBrains Mono Nerd Font 9 
 
 # Autostart Picom
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
@@ -14,9 +14,6 @@ exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Start XDG autostart .desktop files using dex. See also https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-
-# Auto strat ibus bamboo
-exec --no-startup-id ibus-daemon
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -32,10 +29,8 @@ bindsym XF86MonBrightnessDown exec  --no-startup-id light -U 10
 # Applications
 bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+b exec --no-startup-id google-chrome-stable
-bindsym $mod+d exec rofi -show drun
-bindsym $mod+Tab exec rofi -show window
-bindsym $mod+m exec rofi -show filebrowser
-bindsym $mod+o exec nautilus
+bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+o exec --no-startup-id nautilus
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -89,20 +84,20 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 2
+default_border pixel 1
 default_floating_border none
+smart_borders on
+border_radius 3
 
 # Hide borders
-hide_edge_borders on
+hide_edge_borders none
 
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
+set $ws6 "6"set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
@@ -142,40 +137,34 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym l resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym j resize shrink height 10 px or 10 ppt
-    bindsym h resize grow width 10 px or 10 ppt
+bindsym l resize shrink width 10 px or 10 ppt
+bindsym k resize grow height 10 px or 10 ppt
+bindsym j resize shrink height 10 px or 10 ppt
+bindsym h resize grow width 10 px or 10 ppt
 
-    bindsym Right resize shrink width 10 px or 10 ppt
-    bindsym Up resize grow height 10 px or 10 ppt
-    bindsym Down resize shrink height 10 px or 10 ppt
-    bindsym Left resize grow width 10 px or 10 ppt
+bindsym Right resize shrink width 10 px or 10 ppt
+bindsym Up resize grow height 10 px or 10 ppt
+bindsym Down resize shrink height 10 px or 10 ppt
+bindsym Left resize grow width 10 px or 10 ppt
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+bindsym Return mode "default"
+bindsym Escape mode "default"
+bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # Set inner/outer gaps
-gaps inner 4
-gaps outer -2
+gaps inner 10
+gaps outer -4
 
 # Color scheme
-set $background #21222C
-set $white #FFFFFF
-set $black #15121C
-set $red #f07178
-set $green #c3e88d
-set $yellow #ffcb6b
-set $blue #82aaff
-set $purple #c792ea
-set $cyan #89ddff
-set $pink #ffa8c5
-set $orange #dd864a
-
 # class                 border  bground text    indicator child_border
-client.focused          $cyan #c3e88d #1A1B26   $blue     $blue
-client.unfocused        $background $background $red $background $background
+client.focused          #7AA2F7 #7AA2F7 #1A1B26 #7AA2F7   #7AA2F7
+client.focused_inactive #24283B #24283B #A9B1D6 #24283B   #24283B
+client.unfocused        #1A1B26 #1A1B26 #A9B1D6 #1A1B26   #1A1B26
+client.urgent           #F7768E #F7768E #1A1B26 #F7768E   #F7768E
+client.placeholder      #000000 #000000 #FFFFFF #000000   #000000
+
+client.background       #FFFFFF
+
