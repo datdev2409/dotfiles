@@ -2,6 +2,7 @@ vim.cmd[[
 filetype plugin indent on
 set foldmethod=manual
 ]]
+vim.g.mapleader = ' '
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.hidden = true
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'

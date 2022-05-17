@@ -37,4 +37,8 @@ return require('packer').startup(function()
   -- whichkey (keymapping)
   use "folke/which-key.nvim"
 
+  -- hop (easymotion)
+  use {
+      'phaazon/hop.nvim', branch = 'v1', 
+  }
 end)
