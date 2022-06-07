@@ -1,14 +1,32 @@
-return require('packer').startup(function()
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+local packer = require('packer');
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
+
+return packer.startup(function()
   -- Packer
   use 'wbthomason/packer.nvim'
   
-  -- Theme
-  use 'sainnhe/everforest'
+ -- Themse
+  use 'Mofiqul/dracula.nvim'
+  use 'Mofiqul/vscode.nvim'
   use 'navarasu/onedark.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   -- LSP
   use 'neovim/nvim-lspconfig'
   use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"} -- hightlight code 
-  
+  use {"williamboman/nvim-lsp-installer",}  
   -- Autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -41,4 +59,7 @@ return require('packer').startup(function()
   use {
       'phaazon/hop.nvim', branch = 'v1', 
   }
+-- init.lua
+  use "lukas-reineke/indent-blankline.nvim"
+
 end)

@@ -1,6 +1,5 @@
 configuration {
 /*	modi: "window,run,ssh";*/
-	font: "Catarell Medium 16";
     font: "Jetbrains Mono Medium Nerd Font 15";
 /*	location: 0;*/
 /*	yoffset: 0;*/

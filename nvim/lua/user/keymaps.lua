@@ -15,10 +15,15 @@ local n_mappings = {
         r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
         d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "GoTo Definition"},
         D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "GoTo Declaration"},
+        i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "GoTo Implementation"},
         o = {"<cmd> Telescope lsp_document_symbols<CR>", "List All Symbols"},
-        e = {"<cmd> Telescope lsp_document_diagnostics<CR>", "List All Errors"},
-        f = {":lua vim.lsp.buf.formatting()<CR>", "Formatting"},
+        e = {"<cmd> lua vim.diagnostic.setloclist()<CR>", "List All Errors"},
+        F = {":lua vim.lsp.buf.formatting()<CR>", "Formatting"},
         k = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Hover"},
+        l = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', "Show Errors"},
+        h = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Help"},
+        ["]"] = {"<cmd>lua vim.diagnostic.goto_next({ border = \"rounded\" })<CR>", "Next Errors"},
+        ["["] = {"<cmd>lua vim.diagnostic.goto_prev({ border = \"rounded\" })<CR>", "Prev Errors"},
     },
 
     ["<leader>"] = {
@@ -31,9 +36,9 @@ local n_mappings = {
     
     J = {"<cmd>HopLineAC<CR>", "Line After Cursor"},
     K = {"<cmd>HopLineBC<CR>", "Line Before Cursor"},
-    f = {"<cmd>HopChar1CurrentLineAC<CR>", "Char After Cursor"},
-    F = {"<cmd>HopChar1CurrentLineBC<CR>", "Char Before Cursor"},
+    W = {"<cmd>HopWordCurrentLine<CR>", "Words Current Line"},
     [";"] = {"<cmd>HopWordMW<CR>", "Words Whole File"},
+    ["<C-/>"] = {"<cmd>CommentToggle<CR>", "Comment Toggle"},
 
     --Resize
     ['<Right>'] = {':vertical resize +5<cr>', "Right"},
@@ -41,15 +46,17 @@ local n_mappings = {
     ['<Down>'] = {':resize +5<cr>', "Down"},
     ['<Up>'] = {':resize -5<cr>', "Up"},
 
-
     --Focus
-    ['<C-h>'] = {'<C-w>h', "Focus Left"},
     ['<C-l>'] = {'<C-w>l', "Focus Right"},
+    ['<C-h>'] = {'<C-w>h', "Focus Left"},
     ['<C-k>'] = {'<C-w>k', "Focus Top"},
     ['<C-j>'] = {'<C-w>j', "Focus Bottom"},
 
     --Split screen
     ['<C-\\>'] = {':vsp<CR>', "Split vertical"},
+
+    ["<A-j>"] = {":m .+1<CR>==", "Move text down"},
+    ["<A-k>"] = {":m .-2<CR>==", "Move text down"},
 }
 
 local v_opts = {mode = "v", prefix = "", noremap = true}
@@ -58,14 +65,23 @@ local v_mappings = {
         name = "Leader",
         c = {"<cmd>CommentToggle<CR>", "Comment Toggle"},
     },
-    
+
     J = {"4j", "Fast Cursor Down"},
     K = {"4k", "Fast Cursor Up"},
-    f = {"<cmd>HopChar1CurrentLineAC<CR>", "Char After Cursor"},
-    F = {"<cmd>HopChar1CurrentLineBC<CR>", "Char Before Cursor"},
+    ["<C-j>"] = {":m .+1<CR>==", "Move text down"},
+    ["<C-k>"] = {":m .-2<CR>==", "Move text down"},
     [";"] = {"<cmd>HopWordMW<CR>", "Words Whole File"},
 
 }
 
 wk.register(n_mappings, opts)
 wk.register(v_mappings, v_opts)
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
+
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts)

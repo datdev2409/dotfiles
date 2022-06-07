@@ -99,10 +99,25 @@ _G.packer_plugins = {
     path = "/home/congdat/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  everforest = {
+  ["dracula.nvim"] = {
     loaded = true,
-    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/everforest",
-    url = "https://github.com/sainnhe/everforest"
+    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/dracula.nvim",
+    url = "https://github.com/Mofiqul/dracula.nvim"
+  },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -118,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/congdat/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -144,11 +164,6 @@ _G.packer_plugins = {
     path = "/home/congdat/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
   },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/congdat/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -168,6 +183,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/congdat/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/congdat/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

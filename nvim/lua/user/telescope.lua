@@ -61,7 +61,7 @@ require('telescope').setup {
             theme='dropdown',       
             previewer = false,
             layout_config = {
-              width = 0.4,
+              width = 0.8,
               prompt_position = "top",
               preview_cutoff = 120,
               horizontal = {mirror = false},
@@ -72,7 +72,7 @@ require('telescope').setup {
         live_grep = {
             theme='dropdown',
             layout_config = {
-                width = 0.4,
+                width = 0.8,
             }
         },
 
@@ -80,7 +80,6 @@ require('telescope').setup {
             path_display = {"tail"},
             theme='dropdown',
         }
-
     }
 }
 
