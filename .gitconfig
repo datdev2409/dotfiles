@@ -13,6 +13,6 @@
 	token = token
 [alias]
 	a = add
-	c = commit -m
-	p = push
-	cl = clone
+    c = commit -m
+    p = push
+    cl = clone
