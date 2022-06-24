@@ -15,9 +15,7 @@ return packer.startup(function()
   -- Packer
   use 'wbthomason/packer.nvim'
   
- -- Themse
-  use 'Mofiqul/dracula.nvim'
-  use 'Mofiqul/vscode.nvim'
+ -- Theme
   use 'navarasu/onedark.nvim'
   use {
     'nvim-lualine/lualine.nvim',
@@ -50,7 +48,7 @@ return packer.startup(function()
   use "max397574/better-escape.nvim"
   
   -- Comment
-  use "terrortylor/nvim-comment"
+  use { 'numToStr/Comment.nvim', }
 
   -- whichkey (keymapping)
   use "folke/which-key.nvim"
@@ -61,5 +59,10 @@ return packer.startup(function()
   }
 -- init.lua
   use "lukas-reineke/indent-blankline.nvim"
+
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+  use 'lewis6991/gitsigns.nvim'
+  -- tag = 'release' -- To use the latest release
 
 end)

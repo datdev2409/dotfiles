@@ -28,7 +28,6 @@ local n_mappings = {
 
     ["<leader>"] = {
         name = "Leader",
-        c = {"<cmd>CommentToggle<CR>", "Comment Toggle"},
         w = {"<cmd>w!<CR>", "Save"},
         q = {"<cmd>q!<CR>", "Exit"},
         s = {"<cmd>source%<CR>", "Reload"}
@@ -38,7 +37,6 @@ local n_mappings = {
     K = {"<cmd>HopLineBC<CR>", "Line Before Cursor"},
     W = {"<cmd>HopWordCurrentLine<CR>", "Words Current Line"},
     [";"] = {"<cmd>HopWordMW<CR>", "Words Whole File"},
-    ["<C-/>"] = {"<cmd>CommentToggle<CR>", "Comment Toggle"},
 
     --Resize
     ['<Right>'] = {':vertical resize +5<cr>', "Right"},
@@ -61,11 +59,6 @@ local n_mappings = {
 
 local v_opts = {mode = "v", prefix = "", noremap = true}
 local v_mappings = {
-    ["<leader>"] = {
-        name = "Leader",
-        c = {"<cmd>CommentToggle<CR>", "Comment Toggle"},
-    },
-
     J = {"4j", "Fast Cursor Down"},
     K = {"4k", "Fast Cursor Up"},
     ["<C-j>"] = {":m .+1<CR>==", "Move text down"},

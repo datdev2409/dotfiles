@@ -33,6 +33,15 @@ vim.opt.shiftwidth = 2                          -- the number of spaces inserted
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
 vim.opt.numberwidth = 2                         -- set number column width to 2 {default 4}
 
+-- if vim.bo.filetype == 'javascript'
+-- then
+--   vim.bo.expandtab = true                        -- convert tabs to spaces
+--   vim.bo.shiftwidth = 4                          -- the number of spaces inserted for each indentation
+--   vim.bo.tabstop = 4                             -- insert 2 spaces for a tab
+--   vim.bo.numberwidth = 4                         -- set number column width to 2 {default 4}
+-- end
+    
+
 vim.opt.cursorline = true                       -- highlight the current line
 
 vim.opt.number = true                           -- set numbered lines
