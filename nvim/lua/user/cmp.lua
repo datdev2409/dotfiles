@@ -81,6 +81,7 @@ sources = cmp.config.sources({
   { name = 'vsnip'}, -- For vsnip users.
 }, {
   { name = 'buffer'},
+  {name = 'path'}
 })
 })
 

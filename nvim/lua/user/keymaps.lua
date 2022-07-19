@@ -10,6 +10,8 @@ local n_mappings = {
         g = { "<cmd>Telescope live_grep<CR>", "Globals" }
     },
 
+    ["<leader>t"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm" },
+
     g = {
         name = "LSP",
         r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
@@ -30,7 +32,8 @@ local n_mappings = {
         name = "Leader",
         w = {"<cmd>w!<CR>", "Save"},
         q = {"<cmd>q!<CR>", "Exit"},
-        s = {"<cmd>source%<CR>", "Reload"}
+        s = {"<cmd>source%<CR>", "Reload"},
+        z = {"<cmd>ZenMode<CR>", "ZenMode"} 
     },
     
     J = {"<cmd>HopLineAC<CR>", "Line After Cursor"},
@@ -78,3 +81,5 @@ keymap("v", ">", ">gv", opts)
 
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+

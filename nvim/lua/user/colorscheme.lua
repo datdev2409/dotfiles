@@ -1,16 +1,52 @@
-require('onedark').setup  {
-    -- Main options --
-    style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-    transparent = false,  -- Show/hide background
-    term_colors = true, -- Change terminal color as per the selected theme style
-    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
-    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-    -- toggle theme style ---
-    toggle_style_key = '<leader>ts', -- Default keybinding to toggle
-    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
-}
+local onedarkpro = require("onedarkpro")
+local colors = onedarkpro.get_colors(vim.g.onedarkpro_style)
 
-local colorscheme = "onedark"
+onedarkpro.setup({
+  theme = "onedark",
+
+  styles = {
+      strings = "NONE", -- Style that is applied to strings
+      comments = "NONE", -- Style that is applied to comments
+      keywords = "NONE", -- Style that is applied to keywords
+      functions = "NONE", -- Style that is applied to functions
+      variables = "NONE", -- Style that is applied to variables
+      virtual_text = "NONE", -- Style that is applied to virtual text
+  },
+  options = {
+      bold = true, -- Use the themes opinionated bold styles?
+      italic = false, -- Use the themes opinionated italic styles?
+      underline = true, -- Use the themes opinionated underline styles?
+      undercurl = false, -- Use the themes opinionated undercurl styles?
+      cursorline = false, -- Use cursorline highlighting?
+      transparency = false, -- Use a transparent background?
+      terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+      window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
+  },
+  hlgroups = { -- Overriding the Comment highlight group
+    NvimTreeFolderIcon = { fg = colors.blue}, -- 1
+    NvimTreeFolderName = { fg = colors.fg },
+    NvimTreeRootFolder = {
+      fg = colors.fg,
+      -- style = "italic"
+    },
+    NvimTreeOpenedFolderName = { fg = colors.blue, style="italic" },
+    NvimTreeOpenedFile = {
+      fg = colors.orange,
+    },
+    TSTagAttribute = { fg = colors.orange},
+    TSURI = { fg = colors.green, style="underline"},
+    TSTagDelimiter = { fg = colors.comment },
+    javascriptTSVariable = { fg = colors.fg }
+
+  },
+  colors = {
+    red = "#E06C75"
+  }
+})
+
+vim.o.background = "dark" 
+onedarkpro.load()
+local colorscheme = "onedarkpro"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
@@ -18,3 +54,11 @@ if not status_ok then
   return
 end
 
+
+-- vim.cmd[[
+--   highlight htmlTSTagDelimiter guifg=#a0a8b7
+--   highlight htmlTSTag guifg=#E06C75
+--   highlight htmlTSURI guifg=#8ebd6b cterm=underline gui=underline
+--   highlight htmlTSTitle guifg=#a0a8b7 cterm=none
+--   highlight htmlTSTagAttribute guifg=#D19A66 cterm=none
+-- ]]

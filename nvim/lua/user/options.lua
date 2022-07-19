@@ -1,5 +1,7 @@
 vim.g.mapleader = ' '
 -- :help options
+--
+vim.opt.laststatus = 0                          -- hide status line (set laststatus = 1 to show again)
 vim.opt.backup = false                          -- creates a backup file
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.swapfile = false                        -- creates a swapfile
@@ -32,15 +34,6 @@ vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
 vim.opt.numberwidth = 2                         -- set number column width to 2 {default 4}
-
--- if vim.bo.filetype == 'javascript'
--- then
---   vim.bo.expandtab = true                        -- convert tabs to spaces
---   vim.bo.shiftwidth = 4                          -- the number of spaces inserted for each indentation
---   vim.bo.tabstop = 4                             -- insert 2 spaces for a tab
---   vim.bo.numberwidth = 4                         -- set number column width to 2 {default 4}
--- end
-    
 
 vim.opt.cursorline = true                       -- highlight the current line
 

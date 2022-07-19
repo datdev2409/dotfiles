@@ -17,6 +17,7 @@ return packer.startup(function()
   
  -- Theme
   use 'navarasu/onedark.nvim'
+  use 'olimorris/onedarkpro.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -64,5 +65,9 @@ return packer.startup(function()
 
   use 'lewis6991/gitsigns.nvim'
   -- tag = 'release' -- To use the latest release
+
+-- Lua
+  use "folke/zen-mode.nvim"
+
 
 end)
