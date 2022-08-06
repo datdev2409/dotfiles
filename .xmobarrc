@@ -1,0 +1,47 @@
+Config { 
+
+   -- appearance
+     font =         "xft:Ubuntu Mono Nerd Font:size=10:bold:antialias=true"
+   , additionalFonts = ["xft:fa-regular:size=10"]
+   , bgColor =      "black"
+   , fgColor =      "#646464"
+   , position =     Top
+   , border =       NoBorder
+   , borderColor =  "#646464"
+
+   -- layout
+   , sepChar =  "%"  
+   , alignSep = "}{"
+   , template = "   | %XMonadLog% }{%light% | %battery% | %date%"
+
+   -- general behavior
+   , lowerOnStart =     False  
+   , hideOnStart =      False
+   , allDesktops =      True
+   , overrideRedirect = True
+   , pickBroadest =     False
+   , persistent =       True
+
+   , commands = 
+     [ Run XMonadLog
+
+     -- Display screen brightness
+     , Run Com "/usr/bin/light" [] "light" 36000
+
+     , Run Battery        [ "--template" , "Bat: <acstatus>"
+                          , "--Low"      , "10"        -- units: %
+                          , "--High"     , "80"        -- units: %
+                          , "--low"      , "darkred"
+                          , "--normal"   , "darkorange"
+                          , "--high"     , "#646464"
+
+                          , "--" -- battery specific options
+                                    -- discharging status
+                                    , "-o"	, "<left>% (<timeleft>)"
+                                    -- AC "on" status
+                                    , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                    -- charged status
+                                    , "-i"	, "<fc=#006000>Charged</fc>"
+                          ] 50
+     ]
+   }
