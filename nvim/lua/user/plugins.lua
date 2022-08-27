@@ -16,7 +16,6 @@ return packer.startup(function()
   use 'wbthomason/packer.nvim'
   
  -- Theme
-  use 'navarasu/onedark.nvim'
   use 'olimorris/onedarkpro.nvim'
   use {
     'nvim-lualine/lualine.nvim',

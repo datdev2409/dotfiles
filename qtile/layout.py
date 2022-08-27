@@ -3,7 +3,7 @@ from themes import colors
 
 my_layout = [
     layout.Columns(
-        margin = 6,
+        margin = 3,
         border_width = 3,
         border_focus = colors["red"],
         border_normal = colors["bg"],
@@ -13,9 +13,9 @@ my_layout = [
     # layout.MonadWide(),
 
     layout.Stack(
+        margin = 3,
         num_stacks = 1,
         border_width = 3,
-        margin = 10,
         border_focus = colors["red"]
     ),
     # layout.Bsp(),

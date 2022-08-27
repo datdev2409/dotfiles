@@ -2,7 +2,7 @@ local onedarkpro = require("onedarkpro")
 local colors = onedarkpro.get_colors(vim.g.onedarkpro_style)
 
 onedarkpro.setup({
-  theme = "onedark",
+  theme = "onedark_dark",
 
   styles = {
       strings = "NONE", -- Style that is applied to strings
@@ -19,10 +19,14 @@ onedarkpro.setup({
       undercurl = false, -- Use the themes opinionated undercurl styles?
       cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
-      terminal_colors = false, -- Use the theme's colors for Neovim's :terminal?
+      terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
       window_unfocussed_color = false, -- When the window is out of focus, change the normal background?
   },
-  hlgroups = { -- Overriding the Comment highlight group
+  colors = {
+    red = "#E06C75",
+    bg = "#1f2329"
+  },
+  highlights = { -- Overriding the Comment highlight group
     NvimTreeFolderIcon = { fg = colors.blue}, -- 1
     NvimTreeFolderName = { fg = colors.fg },
     NvimTreeRootFolder = {
@@ -39,9 +43,6 @@ onedarkpro.setup({
     javascriptTSVariable = { fg = colors.fg }
 
   },
-  colors = {
-    red = "#E06C75"
-  }
 })
 
 vim.o.background = "dark" 

@@ -39,6 +39,7 @@ keys = [
     # Application hotkeys
     Key([mod], "Return", lazy.spawn(terminal)),
     Key([mod], "b"     , lazy.spawn("google-chrome-stable")),
+    Key([mod], "d"     , lazy.spawn("rofi -show run")),
 
     Key([mod], "space", lazy.next_layout()),
     Key([mod], "q", lazy.window.kill()),
@@ -49,9 +50,9 @@ keys = [
     Key([mod, "shift"], "r", lazy.reload_config()),
 
     # Media hotkeys
-    Key([], 'XF86AudioMute'         , lazy.spawn('pulseaudio-ctl set 1')),
-    Key([], 'XF86AudioRaiseVolume'  , lazy.spawn('pulseaudio-ctl up 5')),
-    Key([], 'XF86AudioLowerVolume'  , lazy.spawn('pulseaudio-ctl down 5')),
+    Key([], 'XF86AudioMute'         , lazy.spawn('pamixer -t')),
+    Key([], 'XF86AudioRaiseVolume'  , lazy.spawn('pamixer -i 5 #to increase 5%')),
+    Key([], 'XF86AudioLowerVolume'  , lazy.spawn('pamixer -d 5 #to decrease 5%')),
 
     Key([], 'XF86MonBrightnessUp'   , lazy.spawn('light -A 10')),
     Key([], 'XF86MonBrightnessDown' , lazy.spawn('light -U 10')),

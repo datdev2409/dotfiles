@@ -48,7 +48,8 @@ backlight_conifg = dict(
 
 volume_config = dict(
     fmt = "Vol: {}",
-    foreground = colors["cyan"]
+    foreground = colors["cyan"],
+    get_volume_command = "pamixer --get-volume",
 )
 
 wlan_config = dict(

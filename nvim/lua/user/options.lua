@@ -37,7 +37,7 @@ vim.opt.numberwidth = 2                         -- set number column width to 2 
 
 vim.opt.cursorline = true                       -- highlight the current line
 
-vim.opt.number = true                           -- set numbered lines
+vim.opt.number = false                           -- set numbered lines
 vim.opt.relativenumber = false                  -- set relative numbered lines
 
 vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
