@@ -10,8 +10,6 @@ local n_mappings = {
         g = { "<cmd>Telescope live_grep<CR>", "Globals" }
     },
 
-    ["<leader>t"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm" },
-
     g = {
         name = "LSP",
         r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},

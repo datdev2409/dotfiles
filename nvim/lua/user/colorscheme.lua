@@ -2,7 +2,7 @@ local onedarkpro = require("onedarkpro")
 local colors = onedarkpro.get_colors(vim.g.onedarkpro_style)
 
 onedarkpro.setup({
-  theme = "onedark_dark",
+  theme = "onedark",
 
   styles = {
       strings = "NONE", -- Style that is applied to strings
@@ -24,7 +24,7 @@ onedarkpro.setup({
   },
   colors = {
     red = "#E06C75",
-    bg = "#1f2329"
+    bg = "#1f2329",
   },
   highlights = { -- Overriding the Comment highlight group
     NvimTreeFolderIcon = { fg = colors.blue}, -- 1
@@ -33,15 +33,16 @@ onedarkpro.setup({
       fg = colors.fg,
       -- style = "italic"
     },
-    NvimTreeOpenedFolderName = { fg = colors.blue, style="italic" },
+    NvimTreeOpenedFolderName = { fg = colors.blue, style="bold" },
     NvimTreeOpenedFile = {
       fg = colors.orange,
     },
-    TSTagAttribute = { fg = colors.orange},
+    TSTagAttribute = { fg = colors.cyan},
     TSURI = { fg = colors.green, style="underline"},
-    TSTagDelimiter = { fg = colors.comment },
-    javascriptTSVariable = { fg = colors.fg }
-
+    --TSTagDelimiter = { fg = colors.cyan },
+    javascriptTSVariable = { fg = colors.fg },
+    TSPunctBracket = {fg = "#858a93"},
+    TSAttribute = {fg = colors.cyan},
   },
 })
 
