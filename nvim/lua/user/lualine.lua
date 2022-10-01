@@ -83,8 +83,6 @@ require('lualine').setup {
   sections = process_sections {
     lualine_a = { 'mode' },
     lualine_b = {
-      'branch',
-      'diff',
       {
         'diagnostics',
         source = { 'nvim' },
@@ -120,7 +118,11 @@ require('lualine').setup {
     },
     lualine_c = {},
     lualine_x = {},
-    lualine_y = { search_result, 'filetype' },
+    lualine_y = {
+      search_result,
+      'branch',
+      'diff',
+    },
     lualine_z = { '%l/%L' },
   },
   inactive_sections = {
