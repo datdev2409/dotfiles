@@ -23,6 +23,9 @@ return packer.startup(function()
  -- Theme
    use 'navarasu/onedark.nvim'
   use 'olimorris/onedarkpro.nvim'
+  use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+
+  use 'kyazdani42/nvim-web-devicons'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }

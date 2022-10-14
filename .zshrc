@@ -5,8 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
 
-ZSH_THEME="robbyrussell"
-ZSH_THEME="bira"
+ZSH_THEME="agnoster"
 
 plugins=(git)
 

@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
 end
 
 
-local servers = {'clangd', 'tsserver', 'cssls', 'html', 'emmet_ls', 'marksman'}
+local servers = {'clangd', 'tsserver', 'cssls', 'html', 'emmet_ls', 'jdtls'}
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     capabilities = capabilities,
